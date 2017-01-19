@@ -13,6 +13,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.title = "Main"
+        
+        let statusView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 20))
+        statusView.backgroundColor = UIColor.black
+        view.addSubview(statusView)
+        
+        let myView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+        myView.backgroundColor = UIColor.white
+       
+        view.addSubview(myView)
+        
+        let barBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: Selector(("clicked")))
+        self.navigationItem.setRightBarButton(barBtn, animated: true)
+    }
+    
+    func clicked() {
+        
+        let newVC = SecondViewController()
+        self.navigationController?.pushViewController(newVC, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
